@@ -16,3 +16,12 @@ Thumbs.db
 # Logs
 *.log
 artifacts/
+
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.cp*
+.venv/
+*.log
+artifacts/
