@@ -1,4 +1,3 @@
-📘 README.md (Full English Version — Production-Ready)
 # EchoSlim Kit  
 ### MCP + Minimal Judgment Loop (Lightweight, Self-Contained)
 
