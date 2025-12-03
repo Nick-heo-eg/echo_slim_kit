@@ -1,179 +1,201 @@
-# 🔥 **README.md — EchoSlim Kit v1.0 (Final)**
+📘 README.md (Full English Version — Production-Ready)
+# EchoSlim Kit  
+### MCP + Minimal Judgment Loop (Lightweight, Self-Contained)
 
-```markdown
-# EchoSlim Kit A+  
-### (Ultra-Minimal Judgment Loop + Playwright MCP Stub)
+EchoSlim Kit is a **tiny, self-contained demo skeleton** for building judgment-style AI systems.  
+It is inspired by Echo Judgment System internal patterns, but **runs independently** and has **no heavy dependencies**.
 
-EchoSlim Kit is a **lightweight, fully self-contained mini-distribution** of the Echo Judgment System.  
-It preserves **only the core heartbeat** of Echo OS, in a form small enough to run anywhere  
-— Windows, macOS, Linux, WSL, Codespaces, or cloud notebooks.
+The goal of this kit is to be:
 
-This kit is designed for:
-
-- Quick demos  
-- Teaching the concepts behind Echo OS  
-- Running a tiny judgment engine locally  
-- Showing how Codex-style / MCP-style automation works  
-- Environments where the full Echo OS (20–30GB) is too large  
-- Developers who want a clean base to build Echo-style agents
+- 🧪 A sandbox for experimentation  
+- 🧱 A foundation for building your own agents  
+- 🚀 A quick demo environment that works anywhere (Windows, macOS, WSL, Cloud)  
+- ✨ A minimal template for scripting, automation, and UI integration  
 
 ---
 
-## 🚀 What’s Inside
+## 🔥 Why This Exists
 
-This repository contains the **minimal functional pieces**:
+Full judgment systems can become 20–30GB with UI frameworks, memory engines, bridges, workers, and orchestration layers.
 
-### Core  
-- `core/judgment/minimal_judgment_loop.py`  
-  A tiny judgment loop returning decision + confidence + trace signature  
-- `core/echo_core/mcp_clients/playwright_mcp_client.py`  
-  A stubbed Playwright MCP client (structure only)
+**EchoSlim Kit focuses only on the “heartbeat”:**
 
-### Ops / Tools  
-- `ops/tools/dexa_playwright_bridge_server.py`  
-  Simulated Dexa-style bridge (Windows PowerShell launcher → MCP client)  
-- `tools/codex_cli_autodexa_patch.py`  
-  A UI automation demo showing how Codex-style commands can wrap MCP  
-- `echo_bridge_config.yaml`  
-  Simple routing config for mapping UI → MCP → judgment  
-- `tools_registry.json`  
-  Simulated registry for tools
+- A minimal judgment engine  
+- A simple trace signature  
+- A stub Playwright MCP client  
+- A sample bridge launcher  
+- A Codex-style UI automation demo  
+- A small tools registry  
 
-### Requirements  
-- `requirements_slim.txt` — no heavy dependencies, safe to run anywhere
+Everything beyond that is intentionally removed.
 
-Everything else from the full Echo OS has been removed.
+It is a **50MB portable starter kit** you can use anywhere.
 
 ---
 
-## 🗂 Directory Layout
+## 📦 What's Inside
+
 
 ""
 echo_slim_kit/
 │── core/
-│   ├── echo_core/mcp_clients/playwright_mcp_client.py
-│   └── judgment/minimal_judgment_loop.py
+│ └── judgment/
+│ └── minimal_judgment_loop.py
 │
-│── ops/tools/
-│   └── dexa_playwright_bridge_server.py
+│── ops/
+│ └── tools/
+│ └── dexa_playwright_bridge_server.py (stub launcher)
 │
 │── tools/
-│   ├── codex_cli_autodexa_patch.py
-│   ├── proof_auto_logger.py (optional stub)
-│   └── tools_registry.json
+│ ├── proof_auto_logger.py
+│ └── tools_registry.json
 │
-│── echo_bridge_config.yaml
+│── codex_cli_autodexa_patch.py (UI demo)
+│── echo_bridge_config.yaml (simple routing config)
 │── requirements_slim.txt
 │── README.md
 ""
 
+No hidden dependencies.  
+No giant frameworks.  
+Everything here fits in a single folder.
+
 ---
 
-## ⚡ Quick Start (Windows)
+## ⚡ Quick Start (Windows + PowerShell)
+
+### 1) Clone the repo
 
 ```powershell
 git clone https://github.com/Nick-heo-eg/echo_slim_kit.git
 cd echo_slim_kit
 
+2) Create & activate a virtual environment
 python -m venv .venv
 .\.venv\Scripts\activate
 
+3) Install the minimal dependencies
 pip install -r requirements_slim.txt
-````
 
-### Run the minimal judgment loop:
+4) Run the minimal judgment loop
+python -c "from core.judgment.minimal_judgment_loop import run_judgment_with_trace; \
+import json; print(json.dumps(run_judgment_with_trace({'text':'check risk'}), indent=2))"
 
-```powershell
-python - <<EOF
-from core.judgment.minimal_judgment_loop import run_judgment_with_trace
-import json
-print(json.dumps(run_judgment_with_trace({"text": "check risk on this order"}), indent=2))
-EOF
-```
+5) Run the UI automation demo (stub)
+python codex_cli_autodexa_patch.py --mode ui --bridge playwright
 
-### Run the UI patch demo (stub):
 
-```powershell
-python tools/codex_cli_autodexa_patch.py --mode ui --bridge playwright
-```
+You’ll see the simulated MCP calls and a stub screenshot added under:
 
-Output example:
+artifacts/dashboard/
 
-```
-Mode        : ui
-Bridge      : playwright
-URL         : https://example.com
-Screenshot  : artifacts/dashboard/demo_slim.png
+🧩 Extending the Kit
+(Build Your Own Judgment System)
 
-navigate result  : { ... stub ... }
-screenshot result: { ... stub ... }
-```
-
----
-
-## ❗ Important Notes
-
-This kit **does not contain**:
-
-* Real Dexa runtime
-* Real Playwright MCP server
-* Real Codex CLI wrapper
-* Echo OS evolution, memory, or signature engines
-* Echo OS decision policies, hooks, or SRL loop
-
-This is a **teaching + demo skeleton**, not your production system.
-
----
-
-## 🧩 How to Extend (Build Your Own Judgment System)
-
-EchoSlim Kit is intentionally minimal.
-You can extend it in any direction depending on your needs:
+This kit is intentionally minimal so you can shape it into your own system.
 
 1) Replace the judgment loop
 
-Swap out the simple example in minimal_judgment_loop.py
-with your own multi-stage logic (rules, scoring, ML models, heuristics, etc).
+Swap out minimal_judgment_loop.py with your real logic:
+
+heuristic scoring
+
+rule-based flows
+
+IR pipelines
+
+LLM-based reasoning
+
+multi-stage scoring
+
+risk engines, decision trees, etc.
 
 2) Implement your own bridge layer
 
-The included Dexa-style launcher is only a stub.
-You can replace it with any automation or orchestration layer
-(Python scripts, Playwright, MCP servers, REST APIs).
+The included Playwright MCP launcher is only a stub.
+You can replace it with:
 
-3) Add real tools or skills
+your own automation harness
 
-Extend tools_registry.json and /tools/ with your own modules
-to perform actions, integrate APIs, or generate automated artifacts.
+REST API bridges
+
+MCP servers
+
+CLI controllers
+
+agent orchestration tools
+
+3) Add real tools / skills
+
+Extend tools_registry.json and the /tools/ folder to include:
+
+API connectors
+
+scraping tools
+
+internal service integrations
+
+database readers
+
+logging/reporting modules
 
 4) Customize routing
 
-echo_bridge_config.yaml shows how a simple router works.
-You can replace it with your own routing table, switchboard, or pipeline builder.
+echo_bridge_config.yaml shows a simple routing table.
+Replace or expand it to match your actual workflow or pipeline.
 
-5) Integrate with your UI / Agents
+5) Integrate with agents or UIs
 
-Use the Codex-style automation demo (codex_cli_autodexa_patch.py)
-as a template for connecting this kit to any UI, CLI, agent, or automation workflow.
----
+The codex_cli_autodexa_patch.py file demonstrates:
 
-## 📜 License
+UI interaction
 
-MIT
+navigation
 
----
+screenshot capture
 
-## ⭐ Why This Exists
+automation scripting
 
-EchoSlim Kit gives developers a **safe, minimal, open** version of the Echo architecture
-without exposing your real internal system.
+You can adapt this pattern to any LLM, agent, or browser-based workflow.
 
-It works as:
+🏗 Philosophy
 
-* A starter template
-* A teaching artifact
-* A reproducible demo
-* A thin layer to integrate with Codex, Claude Code, or Playwright MCP
-* A “mini-Echo” that fits in your pocket
+EchoSlim Kit is not a full production system.
+It is a small architectural seed — enough to demonstrate:
 
-```
+how a judgment loop works
+
+how bridges dispatch actions
+
+how MCP verbs are structured
+
+how an agent connects to UI automation
+
+how output artifacts are logged
+
+You decide how far to take it.
+
+📝 License
+
+MIT License (recommended)
+(Change it if you need a different policy.)
+
+🤝 Contributions
+
+Pull requests are welcome — especially examples of:
+
+More judgment logic patterns
+
+Real MCP client integrations
+
+Additional tools and skills
+
+Cross-agent demos
+
+UI automation showcases
+
+⭐ If this helped you
+
+Consider starring the repo — it helps others discover it!
+
+⭐ github.com/Nick-heo-eg/echo_slim_kit
