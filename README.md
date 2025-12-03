@@ -125,21 +125,41 @@ This is a **teaching + demo skeleton**, not your production system.
 
 ---
 
-## 🧩 How to Extend
+## 🧩 How to Extend (Build Your Own Judgment System)
 
-Replace the `TODO_REAL_IMPL` blocks with your real modules from the full Echo OS:
+EchoSlim Kit is intentionally minimal.
+You can extend it in any direction depending on your needs:
 
-* Replace MCP stub → your actual MPC client
-* Replace bridge → your Dexa bridge
-* Replace minimal judgment loop → your full multi-stage IRAR/SRL logic
-* Replace config → your routing table
-* Add tools → real skill modules
+1) Replace the judgment loop
 
+Swap out the simple example in minimal_judgment_loop.py
+with your own multi-stage logic (rules, scoring, ML models, heuristics, etc).
+
+2) Implement your own bridge layer
+
+The included Dexa-style launcher is only a stub.
+You can replace it with any automation or orchestration layer
+(Python scripts, Playwright, MCP servers, REST APIs).
+
+3) Add real tools or skills
+
+Extend tools_registry.json and /tools/ with your own modules
+to perform actions, integrate APIs, or generate automated artifacts.
+
+4) Customize routing
+
+echo_bridge_config.yaml shows how a simple router works.
+You can replace it with your own routing table, switchboard, or pipeline builder.
+
+5) Integrate with your UI / Agents
+
+Use the Codex-style automation demo (codex_cli_autodexa_patch.py)
+as a template for connecting this kit to any UI, CLI, agent, or automation workflow.
 ---
 
 ## 📜 License
 
-MIT (optional — choose your own license)
+MIT
 
 ---
 
