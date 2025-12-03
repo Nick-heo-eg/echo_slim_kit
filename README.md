@@ -48,8 +48,7 @@ Everything else from the full Echo OS has been removed.
 
 ## 🗂 Directory Layout
 
-```
-
+""
 echo_slim_kit/
 │── core/
 │   ├── echo_core/mcp_clients/playwright_mcp_client.py
@@ -66,8 +65,7 @@ echo_slim_kit/
 │── echo_bridge_config.yaml
 │── requirements_slim.txt
 │── README.md
-
-````
+""
 
 ---
 
