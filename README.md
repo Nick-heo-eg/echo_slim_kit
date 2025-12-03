@@ -35,7 +35,7 @@ It is a **50MB portable starter kit** you can use anywhere.
 ## 📦 What's Inside
 
 
-""
+```
 echo_slim_kit/
 │── core/
 │ └── judgment/
@@ -53,7 +53,7 @@ echo_slim_kit/
 │── echo_bridge_config.yaml (simple routing config)
 │── requirements_slim.txt
 │── README.md
-""
+```
 
 No hidden dependencies.  
 No giant frameworks.  
