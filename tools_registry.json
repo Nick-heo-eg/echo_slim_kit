@@ -1,0 +1,15 @@
+{
+  "playwright_mcp": {
+    "type": "mcp",
+    "command": "npx @playwright/mcp@latest --port 3928 --host 127.0.0.1",
+    "description": "Playwright MCP server for browser automation (slim stub config)",
+    "enabled": true,
+    "bridge_module": "ops.mcp.playwright.mcp_bridge.MCPPlaywrightBridge",
+    "client_class": "core.echo_core.mcp_clients.playwright_mcp_client.PlaywrightMCPClient",
+    "shared_by": [
+      "codex_cli",
+      "claude_cli",
+      "dexa_runtime"
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+codex_playwright_bridge:
+  description: "Slim Codex CLI → Playwright MCP (stub)"
+  entrypoint: "python3 codex_cli_autodexa_patch.py --mode ui --bridge playwright"
+  route:
+    - codex_cli
+    - playwright_mcp
+    - proof_auto_logger
