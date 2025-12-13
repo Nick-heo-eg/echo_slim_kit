@@ -4,6 +4,12 @@
 EchoSlim Kit is a **tiny, self-contained demo skeleton** for building judgment-style AI systems.  
 It is inspired by Echo Judgment System internal patterns, but **runs independently** and has **no heavy dependencies**.
 
+This repository is **not a benchmark**, **not an optimization effort**,  
+and **not a claim about AI intelligence or accuracy**.
+
+Here, *“judgment”* means a **structured decision boundary**  
+—not human-like reasoning or general intelligence.
+
 The goal of this kit is to be:
 
 - 🧪 A sandbox for experimentation  
